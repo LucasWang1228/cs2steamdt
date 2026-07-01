@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS2 选品看板 | 2026-07-01</title>
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --panel: #ffffff;
+      --ink: #1f2522;
+      --muted: #66706b;
+      --line: #d9d6ca;
+      --buy: #147a5b;
+      --wait: #a46b00;
+      --avoid: #a43c35;
+      --watch: #4d5f90;
+      --chip: #ece7da;
+      --shadow: 0 10px 30px rgba(31, 37, 34, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(247,245,239,.96), rgba(247,245,239,1)),
+        url("early_pick_chart.png") center top / cover fixed;
+    }
+
+    button, input { font: inherit; }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 264px minmax(0, 1fr);
+    }
+
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 24px 18px;
+      border-right: 1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: grid;
+      gap: 5px;
+      margin-bottom: 24px;
+    }
+
+    .brand strong {
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .brand span, .stamp {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    nav {
+      display: grid;
+      gap: 8px;
+      margin: 18px 0 24px;
+    }
+
+    .nav-btn, .tab-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      min-height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .nav-btn:hover, .tab-btn:hover { border-color: #b7b19f; }
+    .nav-btn.active, .tab-btn.active {
+      background: #1f2522;
+      color: #fff;
+      border-color: #1f2522;
+    }
+
+    .rules {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfaf6;
+      display: grid;
+      gap: 10px;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: 10px 1fr;
+      gap: 9px;
+      align-items: start;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+      background: var(--buy);
+    }
+
+    .dot.wait { background: var(--wait); }
+    .dot.avoid { background: var(--avoid); }
+
+    main {
+      padding: 28px;
+      display: grid;
+      gap: 22px;
+      max-width: 1320px;
+      width: 100%;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 780px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .market {
+      min-width: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow);
+    }
+
+    .market strong {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .market span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255,255,255,.94);
+    }
+
+    .metric b {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      display: grid;
+      gap: 14px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .pick {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .pick[data-type="buy"] { border-top: 4px solid var(--buy); }
+    .pick[data-type="wait"] { border-top: 4px solid var(--wait); }
+    .pick[data-type="avoid"] { border-top: 4px solid var(--avoid); }
+    .pick[data-type="watch"] { border-top: 4px solid var(--watch); }
+
+    .pick-title {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .pick-title strong {
+      font-size: 17px;
+      overflow-wrap: anywhere;
+      line-height: 1.35;
+    }
+
+    .pick-title span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      font-size: 12px;
+      color: #3b403d;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .badge.buy { color: #fff; background: var(--buy); }
+    .badge.wait { color: #fff; background: var(--wait); }
+    .badge.avoid { color: #fff; background: var(--avoid); }
+    .badge.watch { color: #fff; background: var(--watch); }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .price-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fbfaf6;
+      min-width: 0;
+    }
+
+    .price-box span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .price-box b {
+      overflow-wrap: anywhere;
+      font-size: 15px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .image-band {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.94);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    figure img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      background: #ece7da;
+    }
+
+    figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.96);
+      overflow: auto;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    th {
+      background: #fbfaf6;
+      color: #3d4541;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    footer {
+      padding: 8px 0 24px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px) {
+      .app { grid-template-columns: 1fr; }
+      aside {
+        position: relative;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      main { padding: 18px; }
+      .topbar, .image-band { grid-template-columns: 1fr; }
+      .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      nav, .summary, .grid, .price-row { grid-template-columns: 1fr; }
+      aside { padding: 18px; }
+      main { padding: 14px; }
+      figure img { height: 240px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <div class="brand">
+        <strong>CS2 选品看板</strong>
+        <span>2026-07-01 · 回调买点版</span>
+      </div>
+      <nav aria-label="分类">
+        <button class="nav-btn active" data-jump="overview">总览 <span>01</span></button>
+        <button class="nav-btn" data-jump="picks">可买清单 <span>02</span></button>
+        <button class="nav-btn" data-jump="stickers">贴纸 <span>03</span></button>
+        <button class="nav-btn" data-jump="cases">箱子 <span>04</span></button>
+      </nav>
+      <div class="rules">
+        <div class="rule"><span class="dot"></span><span>绿色只代表适合分批，不代表无脑满仓。</span></div>
+        <div class="rule"><span class="dot wait"></span><span>黄色等关键价位或止跌信号，不急。</span></div>
+        <div class="rule"><span class="dot avoid"></span><span>红色是当前不追，后面企稳再复查。</span></div>
+      </div>
+      <p class="stamp">价格单位：人民币。数据来自本工作区分析记录和 SteamDT 快照。</p>
+    </aside>
+
+    <main>
+      <section id="overview">
+        <div class="topbar">
+          <div>
+            <h1>朋友版买什么看板</h1>
+            <p class="lead">把复杂行情翻译成清单：哪些可以分批，哪些等挂价，哪些暂时别碰。当前大盘在 940 附近摇摆，核心策略是低吸，不追涨。</p>
+          </div>
+          <div class="market">
+            <strong>936-940</strong>
+            <span>当前大盘观察区。站回 945 才算重新转强，跌破 930 就暂停加仓。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary" aria-label="摘要">
+        <div class="metric"><b>30%-40%</b><span>当前建议仓位上限</span></div>
+        <div class="metric"><b>945</b><span>加仓确认线</span></div>
+        <div class="metric"><b>930</b><span>结构防线</span></div>
+        <div class="metric"><b>3-4</b><span>贴纸核心票数量</span></div>
+      </section>
+
+      <section id="picks">
+        <div class="section-head">
+          <h2>可买清单</h2>
+          <div class="tabs" aria-label="筛选">
+            <button class="tab-btn active" data-filter="all">全部</button>
+            <button class="tab-btn" data-filter="buy">分批</button>
+            <button class="tab-btn" data-filter="wait">等待</button>
+            <button class="tab-btn" data-filter="watch">观察</button>
+            <button class="tab-btn" data-filter="avoid">不追</button>
+          </div>
+        </div>
+        <div class="grid" id="cards"></div>
+      </section>
+
+      <section id="stickers">
+        <div class="section-head">
+          <h2>贴纸核心票</h2>
+        </div>
+        <div class="image-band">
+          <figure>
+            <img src="stickers_20260701.png" alt="2026-07-01 贴纸推荐图">
+            <figcaption>7/1 贴纸推荐图。优先低位、买盘贴近、离 ATH 足够远的 Holo。</figcaption>
+          </figure>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>标的</th><th>价格</th><th>动作</th><th>备注</th></tr></thead>
+              <tbody>
+                <tr><td>FURIA Holo | Austin 2025</td><td>¥20.5-21.3</td><td>分批</td><td>优先级高于 FURIA Budapest，跌破 ¥20 可补第二档。</td></tr>
+                <tr><td>FaZe Holo | Budapest 2025</td><td>约 ¥15.75</td><td>分批</td><td>距 ATH 深，适合核心小仓。</td></tr>
+                <tr><td>Lynn Vision Holo | Budapest 2025</td><td>约 ¥15.68</td><td>分批</td><td>接近 ATL，注意流动性。</td></tr>
+                <tr><td>MOUZ / NAVI / TYLOO Budapest</td><td>¥12-22</td><td>等待低挂</td><td>预算有限时只选 3-4 张，不摊太散。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases">
+        <div class="section-head">
+          <h2>箱子定投</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>箱子</th><th>当前判断</th><th>理想区间</th><th>朋友版动作</th></tr></thead>
+            <tbody>
+              <tr><td>Gamma 2 Case</td><td>核心定投票，7 日回调后更舒服</td><td>¥19.5-20.5；¥18-19 第二档</td><td>分批买，不梭哈</td></tr>
+              <tr><td>Gamma Case</td><td>和 Gamma 2 结构相近</td><td>约 ¥20 附近</td><td>可配对，但别同类太重</td></tr>
+              <tr><td>Glove Case</td><td>高位回撤中段，不算便宜</td><td>¥92-96 第一档，¥85-90 更好</td><td>现在 ¥100+ 只小看或很小仓</td></tr>
+              <tr><td>Broken Fang / Shattered Web / Spectrum</td><td>中长期观察组合</td><td>等大盘企稳后分批</td><td>作为 Gamma 之外的分散项</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        本页是选品看板，不是收益承诺。所有买入都按分批、挂价、止损执行；大盘跌破 930 时暂停接刀，站回 945 后再提高仓位。
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const picks = [
+      {
+        type: "buy",
+        name: "USP-S | Neo-Noir (Factory New)",
+        group: "FN 枪皮",
+        price: "约 ¥738",
+        zone: "贴近 MA7",
+        action: "小仓分批",
+        tags: ["48h -6.9%", "距90高 -34%", "题材强"],
+        note: "适合朋友清单里的第一梯队，等大盘稳住后加第二档。"
+      },
+      {
+        type: "buy",
+        name: "AWP | Neo-Noir (Factory New)",
+        group: "FN 枪皮",
+        price: "约 ¥384.5",
+        zone: "贴近 MA7",
+        action: "小仓分批",
+        tags: ["48h -3.3%", "距90高 -16%", "好卖"],
+        note: "价格门槛低，辨识度强，适合做轻仓弹性票。"
+      },
+      {
+        type: "buy",
+        name: "MP9 | Mount Fuji (Factory New)",
+        group: "FN 枪皮",
+        price: "约 ¥149.5",
+        zone: "回调低吸",
+        action: "分批",
+        tags: ["48h -5.3%", "距90高 -20%", "低价弹性"],
+        note: "适合预算较小的朋友，别追涨，挂低一点更舒服。"
+      },
+      {
+        type: "buy",
+        name: "MAC-10 | Disco Tech (Factory New)",
+        group: "FN 枪皮",
+        price: "约 ¥205",
+        zone: "回调低吸",
+        action: "分批",
+        tags: ["48h -6.2%", "距90高 -50%", "视觉题材"],
+        note: "空间感好，但冷门度高于主战，仓位不要太大。"
+      },
+      {
+        type: "wait",
+        name: "AK-47 | Nightwish (Factory New)",
+        group: "FN 枪皮",
+        price: "约 ¥844",
+        zone: "等确认",
+        action: "站稳再加",
+        tags: ["48h -6.1%", "距90高 -18.6%", "主战"],
+        note: "好标的，但等重新站稳或低挂成交，别看见红就冲。"
+      },
+      {
+        type: "wait",
+        name: "Galil AR | Phoenix Blacklight (Factory New)",
+        group: "用户关注",
+        price: "约 ¥1,440",
+        zone: "可低挂",
+        action: "小仓挂单",
+        tags: ["7d -6.8%", "距90高 -38%", "题材强"],
+        note: "你之前看好的方向还在，适合低吸，不适合追确认前的反弹。"
+      },
+      {
+        type: "buy",
+        name: "Sport Gloves | Slingshot (Field-Tested)",
+        group: "手套",
+        price: "约 ¥2,598",
+        zone: "贴 MA7",
+        action: "分批",
+        tags: ["48h -5.4%", "性价比", "流动性好"],
+        note: "弹弓 FT 比 MW 更适合朋友做性价比买点。"
+      },
+      {
+        type: "buy",
+        name: "Sport Gloves | Miami Darryl (Field-Tested)",
+        group: "手套",
+        price: "约 ¥3,184",
+        zone: "贴 MA7",
+        action: "分批",
+        tags: ["48h -3.1%", "流动性强", "题材鲜明"],
+        note: "回调健康，适合愿意买中端手套的朋友。"
+      },
+      {
+        type: "wait",
+        name: "Sport Gloves | Superconductor (Field-Tested)",
+        group: "手套",
+        price: "约 ¥15,999",
+        zone: "¥15,500-15,800",
+        action: "等价位",
+        tags: ["48h -7.8%", "30d +23%", "强势回踩"],
+        note: "不是坏趋势，但 FT 等 15.2k-15.8k 更理性，跌破 14.5k 暂停。"
+      },
+      {
+        type: "wait",
+        name: "Specialist Gloves | Crimson Kimono (Minimal Wear)",
+        group: "手套",
+        price: "约 ¥17,150-17,388",
+        zone: "看卖相",
+        action: "只挑图案",
+        tags: ["48h -3.3%", "高价", "模板溢价"],
+        note: "右手满红不该大幅溢价，主要看左手补红和整体连贯度。"
+      },
+      {
+        type: "avoid",
+        name: "Glock-18 | Neo-Noir / Ocean Drive / Snack Attack FN",
+        group: "观察",
+        price: "低于 MA7 较多",
+        zone: "等止跌",
+        action: "暂不接",
+        tags: ["跌破结构", "等企稳"],
+        note: "不是永久拉黑，是现在别急接，等止跌再复查。"
+      },
+      {
+        type: "avoid",
+        name: "Glock Vogue / AWP Fever Dream / P250 Muertos FN",
+        group: "不追",
+        price: "短线偏热",
+        zone: "不追高",
+        action: "等待回调",
+        tags: ["过热", "盈亏比差"],
+        note: "朋友最容易买在热闹处，这组先放到不追。"
+      }
+    ];
+
+    const cards = document.getElementById("cards");
+    const statusText = { buy: "分批", wait: "等待", avoid: "不追", watch: "观察" };
+
+    function render(filter = "all") {
+      cards.innerHTML = "";
+      picks
+        .filter(item => filter === "all" || item.type === filter)
+        .forEach(item => {
+          const article = document.createElement("article");
+          article.className = "pick";
+          article.dataset.type = item.type;
+          article.innerHTML = `
+            <div class="pick-title">
+              <strong>${item.name}</strong>
+              <span>${item.group}</span>
+            </div>
+            <div class="badges">
+              <span class="badge ${item.type}">${statusText[item.type]}</span>
+              ${item.tags.map(tag => `<span class="badge">${tag}</span>`).join("")}
+            </div>
+            <div class="price-row">
+              <div class="price-box"><span>参考价</span><b>${item.price}</b></div>
+              <div class="price-box"><span>买点</span><b>${item.zone}</b></div>
+              <div class="price-box"><span>动作</span><b>${item.action}</b></div>
+              <div class="price-box"><span>仓位</span><b>${item.type === "buy" ? "小到中" : "小或空"}</b></div>
+            </div>
+            <p class="note">${item.note}</p>
+          `;
+          cards.appendChild(article);
+        });
+    }
+
+    document.querySelectorAll(".tab-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        render(button.dataset.filter);
+      });
+    });
+
+    document.querySelectorAll(".nav-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(button.dataset.jump).scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>
