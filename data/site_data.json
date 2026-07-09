@@ -1,450 +1,539 @@
 {
-  "title": "CS2 选品看板",
-  "generatedAt": "2026/7/1 14:37:34",
-  "week": "2026-06-29_至_2026-07-05",
-  "summary": "自动读取项目日志、周归档和 JSON 快照，把复杂行情翻译成清单：哪些可以分批，哪些等挂价，哪些暂时别碰。",
-  "marketLabel": "940",
-  "marketText": "最新情绪：中性 🟡 (53/100)。关键执行位仍看 945 转强、930 防守。",
-  "market": {
-    "index": 939.61,
-    "score": 53,
-    "sentiment": "中性 🟡",
-    "date": "2026/7/1 12:00:04"
+  "generatedAt": "2026/07/09 09:04",
+  "broad": {
+    "current": 927.15,
+    "today": 1,
+    "h24": 0.67,
+    "d7": -0.52,
+    "d30": -5.18,
+    "vsMa7": -0.33,
+    "vsMa30": -1.42
   },
-  "cards": [
+  "items": [
     {
-      "type": "buy",
-      "name": "USP-S | Neo-Noir (Factory New)",
-      "group": "FN 枪皮",
-      "price": "约 ¥738",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-6.94%",
-        "距90日高-34%",
-        "贴近MA7"
-      ],
-      "note": "USP-S | Neo-Noir (Factory New) 约 ¥738，48h -6.94%，贴近 MA7，距 90 日高 -34%"
+      "group": "主推低吸",
+      "name": "USP-S | Printstream (Minimal Wear)",
+      "cn": "USP-S | 印花集 MW",
+      "action": "低挂 420-435；站回 449/455 加一档",
+      "note": "USP 线强于大盘，流动性和辨识度都够，适合做本周稳健核心。",
+      "price": {
+        "floor": 434.5,
+        "platform": "YOUPIN",
+        "buff": 436,
+        "totalSell": 2389
+      },
+      "current": 434.5,
+      "h24": 0.81,
+      "d7": 2.48,
+      "d30": 6.24,
+      "vsMa7": 0.46,
+      "vsMa30": 2.37,
+      "low30": 404,
+      "high30": 449,
+      "fromLow30": 7.55,
+      "fromHigh30": -3.23,
+      "fromHigh90": -8.08,
+      "score": 10
     },
     {
-      "type": "buy",
-      "name": "AWP | Neo-Noir (Factory New)",
-      "group": "FN 枪皮",
-      "price": "约 ¥384.5",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-3.27%",
-        "距90日高-16%",
-        "贴近MA7"
-      ],
-      "note": "AWP | Neo-Noir (Factory New) 约 ¥384.5，48h -3.27%，贴近 MA7，距 90 日高 -16%"
+      "group": "主推低吸",
+      "name": "M4A1-S | Mecha Industries (Field-Tested)",
+      "cn": "M4A1-S | 机械工业 FT",
+      "action": "低挂 710-735；站回 748/766 确认",
+      "note": "同款里 FT 比 MW 结构更顺，贴低位但 30 日不算塌。",
+      "price": {
+        "floor": 733.78,
+        "platform": "C5",
+        "buff": 748.5,
+        "totalSell": 1349
+      },
+      "current": 733.78,
+      "h24": 0.58,
+      "d7": 1.92,
+      "d30": -0.77,
+      "vsMa7": 0.19,
+      "vsMa30": -0.62,
+      "low30": 710,
+      "high30": 766,
+      "fromLow30": 3.35,
+      "fromHigh30": -4.21,
+      "fromHigh90": -7.82,
+      "score": 4.5
     },
     {
-      "type": "buy",
-      "name": "MP9 | Mount Fuji (Factory New)",
-      "group": "FN 枪皮",
-      "price": "约 ¥149.47",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-5.34%",
-        "距90日高-20%",
-        "贴近MA7"
-      ],
-      "note": "MP9 | Mount Fuji (Factory New) 约 ¥149.47，48h -5.34%，贴近 MA7，距 90 日高 -20%"
+      "group": "主推低吸",
+      "name": "AK-47 | Neon Revolution (Minimal Wear)",
+      "cn": "AK-47 | 霓虹革命 MW",
+      "action": "低挂 760-780；站回 790/815 确认",
+      "note": "AK 低位修复票，7 日转正但仍低于 MA30，不追现价大单。",
+      "price": {
+        "floor": 779.5,
+        "platform": "YOUPIN",
+        "buff": 789,
+        "totalSell": 1347
+      },
+      "current": 779.5,
+      "h24": -0.7,
+      "d7": 1.56,
+      "d30": -11.42,
+      "vsMa7": 0.42,
+      "vsMa30": -5.34,
+      "low30": 759.99,
+      "high30": 996.99,
+      "fromLow30": 2.57,
+      "fromHigh30": -21.81,
+      "fromHigh90": -21.81,
+      "score": -3.5
     },
     {
-      "type": "buy",
-      "name": "MAC-10 | Disco Tech (Factory New)",
-      "group": "FN 枪皮",
-      "price": "约 ¥204.96",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-6.20%",
-        "距90日高-50%",
-        "贴近MA7"
-      ],
-      "note": "MAC-10 | Disco Tech (Factory New) 约 ¥204.96，48h -6.20%，贴近 MA7，距 90 日高 -50%"
+      "group": "主推低吸",
+      "name": "M4A1-S | Mecha Industries (Minimal Wear)",
+      "cn": "M4A1-S | 机械工业 MW",
+      "action": "低挂 730-745；站回 755/766 确认",
+      "note": "现价接近 30 日低位，确认性不如 FT，但适合小仓观察。",
+      "price": {
+        "floor": 747.6,
+        "platform": "C5",
+        "buff": 754.5,
+        "totalSell": 1728
+      },
+      "current": 747.6,
+      "h24": 1.71,
+      "d7": -0.85,
+      "d30": -15.05,
+      "vsMa7": 0.33,
+      "vsMa30": -6.97,
+      "low30": 729,
+      "high30": 966,
+      "fromLow30": 2.55,
+      "fromHigh30": -22.61,
+      "fromHigh90": -22.61,
+      "score": -6.9
     },
     {
-      "type": "wait",
-      "name": "MP9 | Starlight Protector (Factory New)",
-      "group": "FN 枪皮",
-      "price": "约 ¥679.99",
-      "zone": "等关键价",
-      "action": "等确认",
-      "tags": [
-        "48h-3.68%",
-        "7d+5.42%"
-      ],
-      "note": "MP9 | Starlight Protector (Factory New) 约 ¥679.99，48h -3.68%，7d +5.42%，仍在趋势内"
+      "group": "主推低吸",
+      "name": "AK-47 | Aquamarine Revenge (Field-Tested)",
+      "cn": "AK-47 | 深海复仇 FT",
+      "action": "低挂 254-266；站回 274/285 确认",
+      "note": "便宜 AK，流动性好，30 日结构温和，适合分散仓。",
+      "price": {
+        "floor": 265.5,
+        "platform": "YOUPIN",
+        "buff": 266.45,
+        "totalSell": 1543
+      },
+      "current": 265.5,
+      "h24": 0.53,
+      "d7": 0.57,
+      "d30": 1.72,
+      "vsMa7": 0.45,
+      "vsMa30": -0.47,
+      "low30": 254,
+      "high30": 274,
+      "fromLow30": 4.53,
+      "fromHigh30": -3.1,
+      "fromHigh90": -10.91,
+      "score": 4.4
     },
     {
-      "type": "wait",
-      "name": "AK-47 | Nightwish (Factory New)",
-      "group": "FN 枪皮",
-      "price": "约 ¥844",
-      "zone": "贴近 MA7",
-      "action": "等确认",
-      "tags": [
-        "48h-6.07%",
-        "距90日高-18.6%",
-        "贴近MA7"
-      ],
-      "note": "AK-47 | Nightwish (Factory New) 约 ¥844，48h -6.07%，贴近 MA7，距 90 日高 -18.6%"
+      "group": "强势买盘",
+      "name": "USP-S | Black Lotus (Factory New)",
+      "cn": "USP-S | 黑莲花 FN",
+      "action": "等 MA7 回踩；不追高",
+      "note": "7 日强度明显，属于本周热票之一，追涨性价比下降。",
+      "price": {
+        "floor": 328,
+        "platform": "BUFF",
+        "buff": 328,
+        "totalSell": 650
+      },
+      "current": 328,
+      "h24": 7.93,
+      "d7": 29.75,
+      "d30": -3.81,
+      "vsMa7": 6.87,
+      "vsMa30": 14.93,
+      "low30": 229,
+      "high30": 348.9,
+      "fromLow30": 43.23,
+      "fromHigh30": -5.99,
+      "fromHigh90": -5.99,
+      "score": 51.9
     },
     {
-      "type": "buy",
-      "name": "★ Specialist Gloves | Crimson Kimono (Minimal Wear)",
-      "group": "手套",
-      "price": "约 ¥17,388",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-3.33%",
-        "距90日高-19.3%",
-        "贴近MA7"
-      ],
-      "note": "★ Specialist Gloves | Crimson Kimono (Minimal Wear) 约 ¥17,388，48h -3.33%，贴近 MA7，距 90 日高 -19.3%"
+      "group": "强势买盘",
+      "name": "USP-S | Lead Conduit (Factory New)",
+      "cn": "USP-S | 铅管 FN",
+      "action": "回踩 160-168 再看",
+      "note": "USP 线里强度稳定，价格轻，适合等回落承接。",
+      "price": {
+        "floor": 170,
+        "platform": "YOUPIN",
+        "buff": 172,
+        "totalSell": 549
+      },
+      "current": 170,
+      "h24": 6.25,
+      "d7": 21.95,
+      "d30": 1.65,
+      "vsMa7": 5.09,
+      "vsMa30": 14.65,
+      "low30": 118.4,
+      "high30": 189.13,
+      "fromLow30": 43.58,
+      "fromHigh30": -10.11,
+      "fromHigh90": -32.67,
+      "score": 42.9
     },
     {
-      "type": "buy",
-      "name": "★ Sport Gloves | Slingshot (Field-Tested)",
-      "group": "手套",
-      "price": "约 ¥2,619",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-4.07%",
-        "贴近MA7"
-      ],
-      "note": "★ Sport Gloves | Slingshot (Field-Tested) 约 ¥2,619，48h -4.07%，贴近 MA7"
+      "group": "强势买盘",
+      "name": "FAMAS | Neural Net (Factory New)",
+      "cn": "FAMAS | 神经网 FN",
+      "action": "只接回踩，不追 24h 大阳",
+      "note": "短线拉升强，但波动明显，适合小仓等回踩。",
+      "price": {
+        "floor": 108.54,
+        "platform": "HALOSKINS",
+        "buff": 115,
+        "totalSell": 641
+      },
+      "current": 110.5,
+      "h24": 14.86,
+      "d7": 32.99,
+      "d30": -13.67,
+      "vsMa7": 10.54,
+      "vsMa30": 17.43,
+      "low30": 74.9,
+      "high30": 144,
+      "fromLow30": 47.53,
+      "fromHigh30": -23.26,
+      "fromHigh90": -40.59,
+      "score": 60.3
     },
     {
-      "type": "buy",
-      "name": "★ Sport Gloves | Slingshot (Minimal Wear)",
-      "group": "手套",
-      "price": "约 ¥6,499.5",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-3.14%",
-        "贴近MA7"
-      ],
-      "note": "★ Sport Gloves | Slingshot (Minimal Wear) 约 ¥6,499.5，48h -3.14%，贴近 MA7"
+      "group": "强势买盘",
+      "name": "Desert Eagle | Mecha Industries (Factory New)",
+      "cn": "Desert Eagle | 机械工业 FN",
+      "action": "等 140-150 区间承接",
+      "note": "低价沙鹰热度回流，当前涨速快，先看回踩承接。",
+      "price": {
+        "floor": 149.5,
+        "platform": "BUFF",
+        "buff": 149.5,
+        "totalSell": 1945
+      },
+      "current": 149.5,
+      "h24": 11.15,
+      "d7": 10.34,
+      "d30": 30,
+      "vsMa7": 6.82,
+      "vsMa30": 21.14,
+      "low30": 93,
+      "high30": 176,
+      "fromLow30": 60.75,
+      "fromHigh30": -15.06,
+      "fromHigh90": -15.06,
+      "score": 50.8
     },
     {
-      "type": "buy",
-      "name": "★ Driver Gloves | Black Tie (Minimal Wear)",
-      "group": "手套",
-      "price": "约 ¥2,150",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-3.85%",
-        "贴近MA7"
-      ],
-      "note": "★ Driver Gloves | Black Tie (Minimal Wear) 约 ¥2,150，48h -3.85%，贴近 MA7"
+      "group": "强势买盘",
+      "name": "Glock-18 | Water Elemental (Factory New)",
+      "cn": "Glock-18 | 水灵 FN",
+      "action": "靠近 480-500 再看",
+      "note": "老箱审美票，强度好但已经靠近短线高位。",
+      "price": {
+        "floor": 493,
+        "platform": "YOUPIN",
+        "buff": 509.9,
+        "totalSell": 796
+      },
+      "current": 493,
+      "h24": 9.31,
+      "d7": 11.04,
+      "d30": 16.96,
+      "vsMa7": 7.51,
+      "vsMa30": 10.6,
+      "low30": 374.8,
+      "high30": 500,
+      "fromLow30": 31.54,
+      "fromHigh30": -1.4,
+      "fromHigh90": -1.4,
+      "score": 40.3
     },
     {
-      "type": "buy",
-      "name": "★ Specialist Gloves | Tiger Strike (Field-Tested)",
-      "group": "手套",
-      "price": "约 ¥1,258",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-4.70%",
-        "贴近MA7"
-      ],
-      "note": "★ Specialist Gloves | Tiger Strike (Field-Tested) 约 ¥1,258，48h -4.70%，贴近 MA7"
+      "group": "收藏埋伏",
+      "name": "MAC-10 | Copper Borre (Factory New)",
+      "cn": "MAC-10 | 铜铎 FN",
+      "action": "800-825 低挂",
+      "note": "Norse 下级轻筹码，适合作为收藏品链低位观察。",
+      "price": {
+        "floor": 825,
+        "platform": "BUFF",
+        "buff": 825,
+        "totalSell": 80
+      },
+      "current": 825,
+      "h24": 0,
+      "d7": 0,
+      "d30": -3.61,
+      "vsMa7": 0.03,
+      "vsMa30": -2.13,
+      "low30": 822.99,
+      "high30": 855.9,
+      "fromLow30": 0.24,
+      "fromHigh30": -3.61,
+      "fromHigh90": -27.84,
+      "score": -0.1
     },
     {
-      "type": "avoid",
-      "name": "暂缓观察: Glock Vogue FN、AWP Fever Dream FN、P250 Muertos FN短线仍偏热；Glock Neo-Noir FN、Ocean Drive FN、Snack Attack FN等跌破 MA7 较多，等企稳后再看",
-      "group": "暂缓",
-      "price": "等更新",
-      "zone": "等止跌",
-      "action": "不追",
-      "tags": [
-        "风险控制"
-      ],
-      "note": "不追/观察: Glock Vogue FN、AWP Fever Dream FN、P250 Muertos FN短线仍偏热；Glock Neo-Noir FN、Ocean Drive FN、Snack Attack FN等跌破 MA7 较多，等企稳后再看"
+      "group": "收藏埋伏",
+      "name": "MAG-7 | Chainmail (Factory New)",
+      "cn": "MAG-7 | 坚固链甲 FN",
+      "action": "122-130 低挂；站回 140 看扫货",
+      "note": "低价老收藏筹码，弹性来自同系列扫地板。",
+      "price": {
+        "floor": 136.26,
+        "platform": "C5",
+        "buff": 138,
+        "totalSell": 148
+      },
+      "current": 136.26,
+      "h24": 5.22,
+      "d7": -2.67,
+      "d30": -7.57,
+      "vsMa7": 0.12,
+      "vsMa30": -3.77,
+      "low30": 122,
+      "high30": 149,
+      "fromLow30": 11.69,
+      "fromHigh30": -8.55,
+      "fromHigh90": -20.16,
+      "score": -1.8
     },
     {
-      "type": "wait",
-      "name": "Sport Gloves | Superconductor (Field-Tested)",
-      "group": "手套",
-      "price": "约 ¥15,999",
-      "zone": "¥15,500-15,800",
-      "action": "等价位",
-      "tags": [
-        "强势回踩",
-        "高价手套"
-      ],
-      "note": "超导体 FT 埋伏位: 第一档 ¥15,500-15,800 小仓试；第二档 ¥14,800-15,200 强支撑低吸；若重新站回 ¥16,300-16,500 可确认止跌加仓；跌破 ¥14,500 暂停接，等待 MA30/大盘止跌"
+      "group": "收藏埋伏",
+      "name": "AK-47 | X-Ray (Minimal Wear)",
+      "cn": "AK-47 | X-Ray MW",
+      "action": "7300-7700 只低挂",
+      "note": "Havoc 二线核心，仍偏弱，适合挂单不适合追单。",
+      "price": {
+        "floor": 7588,
+        "platform": "YOUPIN",
+        "buff": 7777,
+        "totalSell": 224
+      },
+      "current": 7588,
+      "h24": -1.44,
+      "d7": -4.79,
+      "d30": -15.6,
+      "vsMa7": -3.47,
+      "vsMa30": -6.65,
+      "low30": 7588,
+      "high30": 9131.6,
+      "fromLow30": 0,
+      "fromHigh30": -16.9,
+      "fromHigh90": -36.5,
+      "score": -17
     },
     {
-      "type": "buy",
-      "name": "运动手套迈阿密风云 FT",
-      "group": "手套",
-      "price": "约 ¥3,184",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-3.07%"
-      ],
-      "note": "运动手套迈阿密风云 FT 约 ¥3,184：48h -3.07%，贴 MA7，流动性强"
+      "group": "收藏埋伏",
+      "name": "M4A1-S | Blue Phosphor (Factory New)",
+      "cn": "M4A1-S | 澜磷 FN",
+      "action": "4000-4120 低吸观察",
+      "note": "质量高但偏稳，作为收藏品风向观察，不当高弹性主仓。",
+      "price": {
+        "floor": 4108.5,
+        "platform": "YOUPIN",
+        "buff": 4148.5,
+        "totalSell": 1222
+      },
+      "current": 4108.5,
+      "h24": -0.28,
+      "d7": -1.45,
+      "d30": -11.65,
+      "vsMa7": -1.15,
+      "vsMa30": -3.07,
+      "low30": 3996,
+      "high30": 4765,
+      "fromLow30": 2.82,
+      "fromHigh30": -13.78,
+      "fromHigh90": -23.59,
+      "score": -7
     },
     {
-      "type": "buy",
-      "name": "弹弓 FT",
-      "group": "手套",
-      "price": "约 ¥2,598",
-      "zone": "贴近 MA7",
-      "action": "分批",
-      "tags": [
-        "48h-5.44%"
-      ],
-      "note": "弹弓 FT 约 ¥2,598：48h -5.44%，贴 MA7，性价比高"
+      "group": "大件风向",
+      "name": "★ Butterfly Knife | Fade (Factory New)",
+      "cn": "蝴蝶刀 | 渐变之色 FN",
+      "action": "只看稳盘，不追",
+      "note": "高流动大件，能稳住说明风险偏好尚可。",
+      "price": {
+        "floor": 15699,
+        "platform": "C5",
+        "buff": 15788,
+        "totalSell": 1578
+      },
+      "current": 15699,
+      "h24": 1.65,
+      "d7": 2.97,
+      "d30": 5.38,
+      "vsMa7": 1.53,
+      "vsMa30": 3.9,
+      "low30": 14000,
+      "high30": 16499.5,
+      "fromLow30": 12.14,
+      "fromHigh30": -4.85,
+      "fromHigh90": -9.77,
+      "score": 12.4
     },
     {
-      "type": "buy",
-      "name": "老虎精英 FT/MW",
-      "group": "手套",
-      "price": "约 ¥1,279",
-      "zone": "等关键价",
-      "action": "分批",
-      "tags": [],
-      "note": "老虎精英 FT/MW 约 ¥1,279/¥2,675：回调到位且 7d 仍正"
+      "group": "大件风向",
+      "name": "★ Sport Gloves | Nocts (Minimal Wear)",
+      "cn": "运动手套 | 夜行衣 MW",
+      "action": "低位稳盘观察",
+      "note": "手套里相对抗跌，适合作为手套板块温度计。",
+      "price": {
+        "floor": 6071,
+        "platform": "C5",
+        "buff": 6140,
+        "totalSell": 762
+      },
+      "current": 6071,
+      "h24": 1.19,
+      "d7": 1.44,
+      "d30": 1.45,
+      "vsMa7": 0.37,
+      "vsMa30": 2.51,
+      "low30": 5600,
+      "high30": 6150,
+      "fromLow30": 8.41,
+      "fromHigh30": -1.28,
+      "fromHigh90": -17.95,
+      "score": 7
     },
     {
-      "type": "buy",
-      "name": "雪豹 FT/MW",
-      "group": "手套",
-      "price": "约 ¥1,999",
-      "zone": "等关键价",
-      "action": "分批",
-      "tags": [],
-      "note": "雪豹 FT/MW 约 ¥1,999/¥3,970：回调健康，流动性尚可"
+      "group": "大件风向",
+      "name": "★ Sport Gloves | Superconductor (Field-Tested)",
+      "cn": "运动手套 | 超导体 FT",
+      "action": "不追反弹，等更低承接",
+      "note": "此前高位回落后仍弱于强势品，适合看不适合追。",
+      "price": {
+        "floor": 15950,
+        "platform": "YOUPIN",
+        "buff": 16000,
+        "totalSell": 761
+      },
+      "current": 15950,
+      "h24": 6.34,
+      "d7": -3.27,
+      "d30": -11.39,
+      "vsMa7": 0.14,
+      "vsMa30": -3.59,
+      "low30": 14888,
+      "high30": 18188,
+      "fromLow30": 7.13,
+      "fromHigh30": -12.3,
+      "fromHigh90": -13.52,
+      "score": -3.3
     },
     {
-      "type": "buy",
-      "name": "深红和服 FT/MW",
-      "group": "手套",
-      "price": "约 ¥12,488",
-      "zone": "等关键价",
-      "action": "分批",
-      "tags": [],
-      "note": "深红和服 FT/MW 约 ¥12,488/¥17,150：MW 回调更深，FT 结构更稳"
+      "group": "暂缓追买",
+      "name": "Galil AR | Phoenix Blacklight (Factory New)",
+      "cn": "加利尔 AR | 凤凰冥灯 FN",
+      "action": "未站回 MA7 前不补",
+      "note": "Havoc 下级 FN 仍弱，需先看到连续承接。",
+      "price": {
+        "floor": 1360,
+        "platform": "YOUPIN",
+        "buff": 1430,
+        "totalSell": 788
+      },
+      "current": 1360,
+      "h24": 3.03,
+      "d7": -5.23,
+      "d30": -22.04,
+      "vsMa7": -2.33,
+      "vsMa30": -10.05,
+      "low30": 1298.5,
+      "high30": 1877,
+      "fromLow30": 4.74,
+      "fromHigh30": -27.54,
+      "fromHigh90": -40.09,
+      "score": -17.7
     },
     {
-      "type": "buy",
-      "name": "弹弓 MW",
-      "group": "手套",
-      "price": "约 ¥6,500",
-      "zone": "等关键价",
-      "action": "分批",
-      "tags": [],
-      "note": "弹弓 MW 约 ¥6,500：仍是可打标的，但性价比不如弹弓 FT"
+      "group": "暂缓追买",
+      "name": "M4A4 | The Coalition (Minimal Wear)",
+      "cn": "M4A4 | 合纵 MW",
+      "action": "先看不买",
+      "note": "2021 Train 链仍弱，二线收藏品没站稳前不重仓。",
+      "price": {
+        "floor": 4285,
+        "platform": "YOUPIN",
+        "buff": 4388,
+        "totalSell": 1386
+      },
+      "current": 4285,
+      "h24": 8.76,
+      "d7": 2.41,
+      "d30": -30.06,
+      "vsMa7": 2.64,
+      "vsMa30": -9.91,
+      "low30": 3799,
+      "high30": 6300,
+      "fromLow30": 12.79,
+      "fromHigh30": -31.98,
+      "fromHigh90": -31.98,
+      "score": -4.4
     },
     {
-      "type": "avoid",
-      "name": "暂缓标的: 清凉薄荷、深红织物、屠夫/恶土/皮革裹手、Boom 等 7 日跌幅过深且低于 MA7 较多，等止跌再看",
-      "group": "暂缓",
-      "price": "等更新",
-      "zone": "等止跌",
-      "action": "不追",
-      "tags": [
-        "风险控制"
-      ],
-      "note": "暂缓标的: 清凉薄荷、深红织物、屠夫/恶土/皮革裹手、Boom 等 7 日跌幅过深且低于 MA7 较多，等止跌再看"
+      "group": "箱子观察",
+      "name": "Operation Hydra Case",
+      "cn": "九头蛇武器箱",
+      "action": "低位定投观察",
+      "note": "箱子只做慢变量，不和短线千百抢仓位。",
+      "price": {
+        "floor": 206.46,
+        "platform": "YOUPIN",
+        "buff": 211,
+        "totalSell": 2179
+      },
+      "current": 206.46,
+      "h24": 0,
+      "d7": 0.71,
+      "d30": -26.79,
+      "vsMa7": -1.74,
+      "vsMa30": -8.46,
+      "low30": 202.46,
+      "high30": 293,
+      "fromLow30": 1.98,
+      "fromHigh30": -29.54,
+      "fromHigh90": -29.54,
+      "score": -14.2
     },
     {
-      "type": "buy",
-      "name": "FaZe Clan (Holo) | Budapest 2025",
-      "group": "贴纸",
-      "price": "¥15.75",
-      "zone": "低位分批",
-      "action": "小仓分批",
-      "tags": [
-        "距 ATH -94.1%",
-        "距 ATL +7.9%"
-      ],
-      "note": "¥15.75，距 ATH -94.1%，距 ATL +7.9%"
-    },
-    {
-      "type": "buy",
-      "name": "Lynn Vision (Holo) | Budapest 2025",
-      "group": "贴纸",
-      "price": "¥15.68",
-      "zone": "接近低点",
-      "action": "小仓分批",
-      "tags": [
-        "距 ATH -95.2%",
-        "触及 ATL"
-      ],
-      "note": "¥15.68，距 ATH -95.2%，触及 ATL"
-    },
-    {
-      "type": "buy",
-      "name": "MOUZ (Holo) | Budapest 2025",
-      "group": "贴纸",
-      "price": "¥13.60",
-      "zone": "低位分批",
-      "action": "小仓分批",
-      "tags": [
-        "距 ATH -85.3%",
-        "距 ATL +1.5%"
-      ],
-      "note": "¥13.60，距 ATH -85.3%，距 ATL +1.5%"
-    },
-    {
-      "type": "buy",
-      "name": "Rare Atom (Holo) | Budapest 2025",
-      "group": "贴纸",
-      "price": "¥28.15",
-      "zone": "低位分批",
-      "action": "小仓分批",
-      "tags": [
-        "距 ATH -88.0%",
-        "距 ATL +1.7%"
-      ],
-      "note": "¥28.15，距 ATH -88.0%，距 ATL +1.7%"
-    },
-    {
-      "type": "buy",
-      "name": "Natus Vincere (Holo) | Budapest 2025",
-      "group": "贴纸",
-      "price": "¥12.50",
-      "zone": "低位分批",
-      "action": "小仓分批",
-      "tags": [
-        "距 ATH -81.0%",
-        "距 ATL +1.6%"
-      ],
-      "note": "¥12.50，距 ATH -81.0%，距 ATL +1.6%"
-    },
-    {
-      "type": "buy",
-      "name": "FURIA (Holo) | Austin 2025",
-      "group": "贴纸",
-      "price": "¥21.31",
-      "zone": "接近低点",
-      "action": "小仓分批",
-      "tags": [
-        "距 ATH -78.3%",
-        "30 日 -28.7%",
-        "触及 ATL"
-      ],
-      "note": "¥21.31，距 ATH -78.3%，触及 ATL，30 日 -28.7%"
-    },
-    {
-      "type": "buy",
-      "name": "Gamma 2 Case",
-      "group": "箱子定投",
-      "price": "¥20.5",
-      "zone": "¥19.5-20.5",
-      "action": "定投分批",
-      "tags": [
-        "核心票",
-        "长线",
-        "箱子"
-      ],
-      "note": "核心结论: Gamma 2 Case 约 ¥20.5，7 日约 -5.5%，距 90 日高点约 -23%，距 52 周高点约 -36%，CN 在售约 1.9 万，适合作为核心定投票；Gamma Case 约 ¥20.6，结构相近，可与 Gamma 2 配对但不宜同类过度集中。"
-    },
-    {
-      "type": "wait",
-      "name": "Glove Case",
-      "group": "箱子定投",
-      "price": "约 ¥101.9",
-      "zone": "¥92-96 第一档",
-      "action": "等回调",
-      "tags": [
-        "高位回撤",
-        "等价位"
-      ],
-      "note": "操作口径: ¥100-105 只观察或极小仓，¥92-96 可试第一档，¥85-90 更适合长线定投加仓，¥78-82 属于强安全边际区；若重新站回 ¥112-115 再考虑趋势确认，不追 ¥120+。"
+      "group": "箱子观察",
+      "name": "Operation Breakout Weapon Case",
+      "cn": "突围武器箱",
+      "action": "稳盘观察",
+      "note": "老箱流动性和共识更好，适合当环境锚。",
+      "price": {
+        "floor": 52.19,
+        "platform": "C5",
+        "buff": 54.4,
+        "totalSell": 6660
+      },
+      "current": 52.19,
+      "h24": -0.23,
+      "d7": -0.06,
+      "d30": 2.68,
+      "vsMa7": -0.37,
+      "vsMa30": -0.05,
+      "low30": 50.3,
+      "high30": 53.3,
+      "fromLow30": 3.76,
+      "fromHigh30": -2.08,
+      "fromHigh90": -12.05,
+      "score": 3.1
     }
-  ],
-  "tables": {
-    "stickers": [
-      {
-        "name": "FaZe Clan (Holo) | Budapest 2025",
-        "price": "¥15.75",
-        "action": "小仓分批",
-        "note": "¥15.75，距 ATH -94.1%，距 ATL +7.9%"
-      },
-      {
-        "name": "Lynn Vision (Holo) | Budapest 2025",
-        "price": "¥15.68",
-        "action": "小仓分批",
-        "note": "¥15.68，距 ATH -95.2%，触及 ATL"
-      },
-      {
-        "name": "MOUZ (Holo) | Budapest 2025",
-        "price": "¥13.60",
-        "action": "小仓分批",
-        "note": "¥13.60，距 ATH -85.3%，距 ATL +1.5%"
-      },
-      {
-        "name": "Rare Atom (Holo) | Budapest 2025",
-        "price": "¥28.15",
-        "action": "小仓分批",
-        "note": "¥28.15，距 ATH -88.0%，距 ATL +1.7%"
-      },
-      {
-        "name": "Natus Vincere (Holo) | Budapest 2025",
-        "price": "¥12.50",
-        "action": "小仓分批",
-        "note": "¥12.50，距 ATH -81.0%，距 ATL +1.6%"
-      },
-      {
-        "name": "FURIA (Holo) | Austin 2025",
-        "price": "¥21.31",
-        "action": "小仓分批",
-        "note": "¥21.31，距 ATH -78.3%，触及 ATL，30 日 -28.7%"
-      },
-      {
-        "name": "TYLOO (Holo) | Budapest 2025",
-        "price": "¥21.69",
-        "action": "小仓分批",
-        "note": "¥21.69，距 ATH -91.2%，距 ATL +3.3%"
-      },
-      {
-        "name": "FURIA (Holo) | Budapest 2025",
-        "price": "¥18.90",
-        "action": "小仓分批",
-        "note": "¥18.90，距 ATH -90.5%，距 ATL +5.6%"
-      }
-    ],
-    "cases": [
-      {
-        "name": "Gamma 2 Case",
-        "status": "核心定投票",
-        "zone": "¥19.5-20.5；¥18-19 第二档",
-        "action": "分批买，不梭哈"
-      },
-      {
-        "name": "Gamma Case",
-        "status": "与 Gamma 2 结构相近",
-        "zone": "约 ¥20 附近",
-        "action": "可配对，避免同类过重"
-      },
-      {
-        "name": "Glove Case",
-        "status": "高位回撤中段",
-        "zone": "¥92-96 第一档，¥85-90 更好",
-        "action": "当前 ¥100+ 只观察或极小仓"
-      },
-      {
-        "name": "组合方向",
-        "status": "主推组合: Gamma 2 / Gamma、Operation Broken Fang Case、Shattered Web Case、Spectrum/Spectrum 2、Glove Case；新箱和供给压力较大的 Fever/Gallery/Kilowatt/Revolution/Dreams & Nightmares 仅观察或小额，不作为长线核心。",
-        "zone": "等大盘企稳后分批",
-        "action": "作为 Gamma 之外分散项"
-      }
-    ]
-  }
+  ]
 }

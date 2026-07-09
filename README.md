@@ -1,3 +1,3 @@
 # cs2steamdt
 
-朋友版 CS2 选品看板。由 `npm run build-site` 自动生成。
+本周买盘看板，由 weekly_buy_board 脚本生成。
